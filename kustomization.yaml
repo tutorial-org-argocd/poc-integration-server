@@ -6,4 +6,4 @@ resources:
 - ace-server-dep.yaml
 images: 
 - name: image-registry.openshift-image-registry.svc:5000/poc-sample-service/ace-service
-  newTag: "1.1"
+  newTag: "1.2"
