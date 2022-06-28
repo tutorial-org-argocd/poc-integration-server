@@ -5,10 +5,8 @@ metadata:
     appconnectenterprise: operator-icp4i
     deployment.kubernetes.io/revision: '1'
     serverName: temp-server
-  resourceVersion: '119523785'
+  
   name: temp-server-is
-  uid: 89a97ec0-8bb9-4ae9-aee4-e8d5fdad9ffc
-  creationTimestamp: '2022-06-28T11:03:32Z'
   generation: 4
   managedFields:
     - manager: manager
@@ -499,7 +497,7 @@ spec:
     rollingUpdate:
       maxUnavailable: 25%
       maxSurge: 25%
-  revisionHistoryLimit: 10
+  revisionHistoryLimit: 0
   progressDeadlineSeconds: 600
 status:
   observedGeneration: 4
