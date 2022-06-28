@@ -7,7 +7,7 @@ spec:
   pod:
    containers:
      runtime:
-       image: image-registry.openshift-image-registry.svc:5000/poc-sample-service/ace-service
+       image: image-registry.openshift-image-registry.svc:5000/poc-sample-service/ace-service:1.1
        imagePullPolicy: Always
   configurations: []
   designerFlowsOperationMode: disabled
