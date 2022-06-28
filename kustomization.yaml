@@ -4,5 +4,5 @@ namespace: poc-sample-service
 resources:
 - anas-server.yaml
 images:
-- name: image-registry.openshift-image-registry.svc:5000/poc-sample-service/ace-service
+- name: anas
   newTag: "3.0"
