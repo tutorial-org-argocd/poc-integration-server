@@ -2,7 +2,7 @@ apiVersion: appconnect.ibm.com/v1beta1
 kind: IntegrationServer
 metadata:
   name: anas-server-11
-  namespace: poc-argocd
+  namespace: poc-sample-service
 spec:
   pod:
    containers:

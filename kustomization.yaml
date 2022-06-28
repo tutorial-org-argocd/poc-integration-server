@@ -1,8 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: poc-argocd
+namespace: poc-sample-service
 resources:
 - anas-server.yaml
-images:
-- name: anas
+- ace-server-dep.yaml
+images: 
+- name: image-registry.openshift-image-registry.svc:5000/poc-sample-service/ace-service
   newTag: "3.0"
