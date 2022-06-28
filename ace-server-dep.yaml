@@ -1,46 +1,522 @@
---- 
-apiVersion: apps/v1
 kind: Deployment
-metadata: 
-  name: ace-server-service
-spec: 
-  replicas: 2
-  revisionHistoryLimit: 0
-  selector: 
-    matchLabels: 
-      app: ace-server-service
-  template: 
-    metadata: 
-      labels: 
-        app: ace-server-service
-    spec: 
-      containers: 
-        - 
-          env: 
-            - 
-              name: LICENSE_LICENSE
-              value: L-KSBM-C87FU2
-            - 
-              name: LICENSE_USE
-              value: CloudPakForIntegrationNonProduction
-            - 
-              name: OPERAND_VERSION
-              value: 12.0.2.0-r2
-            - 
-              name: LICENSE
+apiVersion: apps/v1
+metadata:
+  annotations:
+    appconnectenterprise: operator-icp4i
+    deployment.kubernetes.io/revision: '1'
+    serverName: temp-server
+  resourceVersion: '119523785'
+  name: temp-server-is
+  uid: 89a97ec0-8bb9-4ae9-aee4-e8d5fdad9ffc
+  creationTimestamp: '2022-06-28T11:03:32Z'
+  generation: 4
+  managedFields:
+    - manager: manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2022-06-28T11:03:32Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:appconnectenterprise': {}
+            'f:serverName': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            'f:appconnect.ibm.com/kind': {}
+            'f:release': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"c875d805-a48f-4f5a-9397-2357505f8d72"}':
+              .: {}
+              'f:apiVersion': {}
+              'f:blockOwnerDeletion': {}
+              'f:controller': {}
+              'f:kind': {}
+              'f:name': {}
+              'f:uid': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                .: {}
+                'f:cloudpakId': {}
+                'f:cloudpakName': {}
+                'f:productChargedContainers': {}
+                'f:productCloudpakRatio': {}
+                'f:productID': {}
+                'f:productMetric': {}
+                'f:productName': {}
+              'f:labels':
+                .: {}
+                'f:app.kubernetes.io/instance': {}
+                'f:app.kubernetes.io/managed-by': {}
+                'f:app.kubernetes.io/name': {}
+                'f:appconnect.ibm.com/kind': {}
+                'f:release': {}
+            'f:spec':
+              'f:volumes':
+                .: {}
+                'k:{"name":"ace-secret-0"}':
+                  .: {}
+                  'f:name': {}
+                  'f:secret':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:items': {}
+                    'f:secretName': {}
+                'k:{"name":"webusers"}':
+                  .: {}
+                  'f:name': {}
+                  'f:secret':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:items': {}
+                    'f:secretName': {}
+                'k:{"name":"workdir"}':
+                  .: {}
+                  'f:emptyDir': {}
+                  'f:name': {}
+              'f:containers':
+                'k:{"name":"temp-server"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/home/aceuser/ace-server"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/home/aceuser/initial-config/webusers"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/home/aceuser/secrets/temp-server-is-adminssl"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                      'f:readOnly': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:ephemeral-storage': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:ephemeral-storage': {}
+                      'f:memory': {}
+                  'f:livenessProbe':
+                    .: {}
+                    'f:exec':
+                      .: {}
+                      'f:command': {}
+                    'f:failureThreshold': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:env':
+                    'k:{"name":"APP_CONNECT_LICENSE_TOGGLES"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ACE_ADMIN_SERVER_CA"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ACE_ADMIN_SERVER_SECURITY"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"MQSI_OVERRIDE_HOSTNAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ACE_ADMIN_SERVER_CERT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ACE_ENABLE_METRICS"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"DEFAULT_CONTENT_SERVER"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ACE_ADMIN_SERVER_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    .: {}
+                    'k:{"name":"ACE_ADMIN_SERVER_KEY"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"LICENSE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"LOG_FORMAT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ACE_DEFAULT_APPLICATION_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SERVICE_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"DESIGNER_FLOWS_OPERATION_MODE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"MQSI_OVERRIDE_HTTP_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ACE_CONFIGURATIONS"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ACE_SERVER_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"GODEBUG"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ACE_ENABLE_OPEN_TRACING"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:readinessProbe':
+                    .: {}
+                    'f:exec':
+                      .: {}
+                      'f:command': {}
+                    'f:failureThreshold': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:securityContext':
+                    .: {}
+                    'f:allowPrivilegeEscalation': {}
+                    'f:capabilities':
+                      .: {}
+                      'f:drop': {}
+                    'f:privileged': {}
+                    'f:readOnlyRootFilesystem': {}
+                    'f:runAsNonRoot': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":7600,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                    'k:{"containerPort":7800,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                    'k:{"containerPort":7843,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:serviceAccount': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:serviceAccountName': {}
+              'f:securityContext': {}
+              'f:affinity':
+                .: {}
+                'f:nodeAffinity':
+                  .: {}
+                  'f:requiredDuringSchedulingIgnoredDuringExecution':
+                    .: {}
+                    'f:nodeSelectorTerms': {}
+                'f:podAntiAffinity':
+                  .: {}
+                  'f:preferredDuringSchedulingIgnoredDuringExecution': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2022-06-28T11:04:04Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+  namespace: poc-sample-service
+  ownerReferences:
+    - apiVersion: appconnect.ibm.com/v1beta1
+      kind: IntegrationServer
+      name: temp-server
+      uid: c875d805-a48f-4f5a-9397-2357505f8d72
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app.kubernetes.io/instance: temp-server
+    app.kubernetes.io/managed-by: ibm-appconnect
+    app.kubernetes.io/name: temp-server
+    appconnect.ibm.com/kind: IntegrationServer
+    release: temp-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: temp-server
+      app.kubernetes.io/managed-by: ibm-appconnect
+      app.kubernetes.io/name: temp-server
+      release: temp-server
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: temp-server
+        app.kubernetes.io/managed-by: ibm-appconnect
+        app.kubernetes.io/name: temp-server
+        appconnect.ibm.com/kind: IntegrationServer
+        release: temp-server
+      annotations:
+        cloudpakId: c8b82d189e7545f0892db9ef2731b90d
+        cloudpakName: IBM Cloud Pak for Integration
+        productChargedContainers: temp-server
+        productCloudpakRatio: '2:3'
+        productID: eb5b5e73f62b4dcf8c434c6274a158a7
+        productMetric: VIRTUAL_PROCESSOR_CORE
+        productName: IBM App Connect Enterprise for non-production
+    spec:
+      restartPolicy: Always
+      serviceAccountName: temp-server-is
+      schedulerName: default-scheduler
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - amd64
+                      - s390x
+                      - ppc64le
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app.kubernetes.io/instance: temp-server
+                    app.kubernetes.io/managed-by: ibm-appconnect
+                    app.kubernetes.io/name: temp-server
+                    release: temp-server
+                topologyKey: kubernetes.io/hostname
+      terminationGracePeriodSeconds: 30
+      securityContext: {}
+      containers:
+        - resources:
+            limits:
+              cpu: '1'
+              ephemeral-storage: 20Gi
+              memory: 1Gi
+            requests:
+              cpu: 200m
+              ephemeral-storage: 5Gi
+              memory: 256Mi
+          readinessProbe:
+            exec:
+              command:
+                - chkacehealthy
+            initialDelaySeconds: 10
+            timeoutSeconds: 3
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 1
+          terminationMessagePath: /dev/termination-log
+          name: temp-server
+          livenessProbe:
+            exec:
+              command:
+                - chkacehealthy
+            initialDelaySeconds: 360
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 1
+          env:
+            - name: ACE_DEFAULT_APPLICATION_NAME
+              value: DefaultApplication
+            - name: ACE_ENABLE_METRICS
+              value: 'true'
+            - name: ACE_ENABLE_OPEN_TRACING
+              value: 'false'
+            - name: ACE_SERVER_NAME
+              value: temp-server
+            - name: DESIGNER_FLOWS_OPERATION_MODE
+              value: disabled
+            - name: LOG_FORMAT
+              value: basic
+            - name: SERVICE_NAME
+              value: temp-server-is
+            - name: LICENSE
               value: accept
-          image: "image-registry.openshift-image-registry.svc:5000/poc-sample-service/ace-service:1.1"
-          name: ace-server-argocd
-          ports: 
-            - 
+            - name: APP_CONNECT_LICENSE_TOGGLES
+              value: '{"connector-ibmrpa":1}'
+            - name: MQSI_OVERRIDE_HOSTNAME
+              value: >-
+                temp-server-http-poc-sample-service.jbs-poc-wdc04-c3c-32x64-0abe335159b03c3875b36f776cdd6d65-0000.us-east.containers.appdomain.cloud
+            - name: MQSI_OVERRIDE_HTTP_PORT
+              value: '80'
+            - name: GODEBUG
+              value: x509ignoreCN=0
+            - name: ACE_ADMIN_SERVER_SECURITY
+              value: 'true'
+            - name: ACE_ADMIN_SERVER_CA
+              value: /home/aceuser/adminssl
+            - name: ACE_ADMIN_SERVER_CERT
+              value: /home/aceuser/adminssl/tls.crt.pem
+            - name: ACE_ADMIN_SERVER_KEY
+              value: /home/aceuser/adminssl/tls.key.pem
+            - name: ACE_ADMIN_SERVER_NAME
+              value: temp-server
+            - name: ACE_CONFIGURATIONS
+              value: temp-server-is-adminssl
+            - name: DEFAULT_CONTENT_SERVER
+              value: 'true'
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            privileged: false
+            runAsNonRoot: true
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: false
+          ports:
+            - name: webui
               containerPort: 7600
-              name: webui
               protocol: TCP
-            - 
+            - name: ace-http
               containerPort: 7800
-              name: ace-http
               protocol: TCP
-            - 
+            - name: ace-https
               containerPort: 7843
-              name: ace-https
               protocol: TCP
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: webusers
+              mountPath: /home/aceuser/initial-config/webusers
+            - name: ace-secret-0
+              readOnly: true
+              mountPath: /home/aceuser/secrets/temp-server-is-adminssl
+            - name: workdir
+              mountPath: /home/aceuser/ace-server
+          terminationMessagePolicy: File
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/poc-sample-service/ace-service:1.1
+      serviceAccount: temp-server-is
+      volumes:
+        - name: webusers
+          secret:
+            secretName: temp-server-is
+            items:
+              - key: adminusers
+                path: admin-users.txt
+              - key: operatorusers
+                path: operator-users.txt
+              - key: viewerusers
+                path: viewer-users.txt
+              - key: editorusers
+                path: editor-users.txt
+              - key: auditusers
+                path: audit-users.txt
+            defaultMode: 420
+        - name: ace-secret-0
+          secret:
+            secretName: temp-server-is-adminssl
+            items:
+              - key: configuration
+                path: configuration
+            defaultMode: 420
+        - name: workdir
+          emptyDir: {}
+      dnsPolicy: ClusterFirst
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 4
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2022-06-28T11:04:03Z'
+      lastTransitionTime: '2022-06-28T11:04:03Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2022-06-28T11:04:03Z'
+      lastTransitionTime: '2022-06-28T11:03:32Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "temp-server-is-74945d4565" has successfully progressed.
